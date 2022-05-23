@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Lb3.Models.Login
+
+<link rel="stylesheet" href="~/css/sign_in.css" />
+
+  <div class="form-signin">
+    <div class="card bg-light">
+      <div class="card-body">
+        <form asp-action="SignIn" method="post">
+          <a href="../index.html"><img class="mb-4" src="~/logos.png" alt="" width="150" height="100"></a>
+          <h1 class="h3 mb-3 fw-normal">Sign in to Urban blog</h1>
+          <label asp-for="Email" class="visually-hidden">Email address</label>
+          <input type="email"  asp-for="Email" class="form-control" placeholder="Email address" required autofocus>
+          <label asp-for="Password" class="visually-hidden">Password</label>
+          <input type="password" asp-for="Password" class="form-control" placeholder="Password" required>
+          <button class="w-100 btn btn-sm btn-dark" type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+    <div class="card bg-light" id="signUp">
+      <div class="card-body">
+        New to Urban blog? <a asp-action="SignUp" class="text-muted stretched-link">Create an account</a>.
+      </div>
+    </div>
+  </div>

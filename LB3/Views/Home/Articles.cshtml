@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<Lb3.Models.Article>
+
+  <div class="album py-5">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" src="../example_img/ideas_title_3.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Broken windows theory</h5>
+                                <p class="card-text">In 1982, James Wilson and George Kelling formulated the theory that
+                                    if someone broke the glass in a house and no one put in a new one, then soon not a
+                                    single whole window would be left in that house.</p>
+                                <div class="d-flex justify-content-center float-right">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-sm btn-outline-secondary"
+                                            asp-action="Idea1">Read
+                                            more...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" src="~/example_img/ideas_title_1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">How to save your city from water</h5>
+                                <p class="card-text">Remember, water is the enemy of the city! All troubles come from
+                                    water: it is it that destroys sidewalks and streets, it is it that causes dirt,
+                                    injuries and destruction of architecture of city. Read more...</p>
+                                <div class="d-flex justify-content-center float-right">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="#">Read
+                                            more...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img class="card-img-top" src="~/example_img/ideas_title_2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Public transport in Munich</h5>
+                                <p class="card-text">Amazingly, in this world there are still cities without a swarm of
+                                    minibuses, but with comfortable and beautiful trams, buses and metro. Today we will
+                                    talk about how public transport is organized in the city.</p>
+                                <div class="d-flex justify-content-center float-right">
+                                    <div class="btn-group">
+                                        <a type="button" class="btn btn-sm btn-outline-secondary" href="#">Read
+                                            more...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        @foreach(var a in Model)
+                        {
+                      <div class="col">
+                           <div class="card shadow-sm">
+                                   @if (a.Image != null)
+                                    {
+                                            <img class="card-img-top" 
+                                                 src="data:image/jpeg;base64,@(Convert.ToBase64String(a.Image))" />
+                                    }
+                                    <div class="card-body">
+                                        <h5 class="card-title">@a.Title</h5>
+                                        <p class="card-text">@a.Text</p>
+                                        <div class="d-flex justify-content-center float-right">
+                                            <div class="btn-group">
+                                                <a type="button" class="btn btn-sm btn-outline-secondary"
+                                                    asp-action="ReadMore" asp-route-id="@a.Id">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+
+                        }
+                </div>
+            </div>
+        </div>
